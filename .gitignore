@@ -1,0 +1,4 @@
+node_modules
+npm-debug.log
+public/styles/*.min.*
+public/scripts/*.min.*
