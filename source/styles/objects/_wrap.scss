@@ -1,0 +1,15 @@
+.wrap {
+    @include clearfix;
+    margin: 0 auto;
+    padding-left: vr(1);
+    padding-right: vr(1);
+}
+
+.wrap {
+    @each $label, $width in $breakpoints {
+        &.--#{$label} {
+            $width: (rem($width) + vr(2));
+            max-width: $width;
+        }
+    }
+}

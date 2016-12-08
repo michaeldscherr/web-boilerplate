@@ -1,0 +1,16 @@
+@mixin headings($scale, $count: 6) {
+    $tmp-font-size: $font-size;
+    @for $i from $count through 1 {
+        $font-size: ($tmp-font-size * $scale);
+        $line-height: vr(1);
+        @if $font-size > lhToPx($line-height) {
+            $modifier: ceil($font-size / lhToPx($line-height));
+            $line-height: vr($modifier);
+        }
+        h#{$i} {
+            font-size: rem($font-size);
+            line-height: $line-height;
+        }
+        $tmp-font-size: $font-size;
+    }
+}

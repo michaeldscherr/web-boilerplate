@@ -1,0 +1,59 @@
+@import 'tools/functions';
+
+// basic
+
+$font-size: 16px !default;
+$font-weight: 400 !default;
+$line-height: 1.75 !default;
+
+// fonts
+
+$font-sans-serif: sans-serif !default;
+$font-serif: serif !default;
+
+// breakpoints
+
+$breakpoints: (
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+) !default;
+
+// media queries
+
+$screen-sm: rem(map-get($breakpoints, sm)) !default;
+$screen-md: rem(map-get($breakpoints, md)) !default;
+$screen-lg: rem(map-get($breakpoints, lg)) !default;
+
+$screen-xs-max: ($screen-sm - rem(1)) !default;
+$screen-sm-max: ($screen-sm - rem(1)) !default;
+$screen-md-max: ($screen-md - rem(1)) !default;
+
+$media-queries: (
+    sm-up: '(min-width: #{$screen-sm})',
+    md-up: '(min-width: #{$screen-md})',
+    lg-up: '(min-width: #{$screen-lg})',
+    sm-down: '(max-width: #{$screen-sm-max})',
+    md-down: '(max-width: #{$screen-md-max})',
+    xs-only: '(max-width: #{$screen-xs-max})',
+    sm-only: '(min-width: #{$screen-sm}) and (max-width: #{$screen-sm-max})',
+    md-only: '(min-width: #{$screen-md}) and (max-width: #{$screen-md-max})',
+) !default;
+
+// typography
+
+$scales: (
+    null: 1.25,
+    sm: 1.5,
+) !default;
+
+// z-indexes
+
+$z-indexes: (
+    sky: 100,
+    mountain: 50,
+    hill: 10,
+    land: 5,
+    default: 1,
+    sea: -1,
+) !default;

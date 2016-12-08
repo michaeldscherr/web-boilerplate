@@ -1,0 +1,47 @@
+$headingsCount: 4;
+
+.s-type {
+    @each $label, $scale in $scales {
+        @if $label == null {
+            @include headings($scale, $headingsCount);
+        }
+        @else {
+            @media screen and (min-width: rem(map-get($breakpoints, $label))) {
+                @for $i from 1 through $headingsCount {
+                    @include headings($scale, $headingsCount);
+                }
+            }
+        }
+    }
+    h1 {
+        margin-top: vr(2);
+    }
+    ul,
+    ol {
+        padding-left: vr(1);
+    }
+    ul {
+        list-style-type: circle;
+    }
+    a,
+    b,
+    i,
+    strong,
+    em,
+    small,
+    code {
+        line-height: 0;
+    }
+    sub,
+    sup {
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        top: -0.25em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+}

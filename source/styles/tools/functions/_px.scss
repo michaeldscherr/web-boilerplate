@@ -1,0 +1,7 @@
+@function px($number) {
+    $num: $number;
+    @if not (unitless($num)) {
+        $num: stripUnit($num);
+    }
+    @return $num + 0px; /* stylelint-disable-line length-zero-no-unit */
+}

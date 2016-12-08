@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const path = require('path');
+const beep = require('beepbeep');
 
 const sass = require('gulp-sass');
 const rename = require('gulp-rename');
@@ -16,27 +17,28 @@ const globby = require('globby');
 
 const browserSync = require('browser-sync').create();
 
-const proxy = '';
 const baseDir = '.';
 const srcDir = `${baseDir}/source`;
 const publicDir = `${baseDir}/public`;
+const browserSyncSettings = {
+    logConnections: false,
+    logFileChanges: false,
+    logLevel: 'info',
+    logSnippet: true,
+    open: false,
+    port: 3005,
+    proxy: 'http://starter-files-web.app',
+    reloadDebounce: 500,
+};
 
 function errorHandler(error) {
-    gutil.log(error.message);
+    beep(1);
+    gutil.log(gutil.colors.red(error.message));
     this.emit('end');
 }
 
 function initBrowserSync() {
-    browserSync.init({
-        logConnections: false,
-        logFileChanges: false,
-        logLevel: 'info',
-        logSnippet: true,
-        open: false,
-        port: 3000,
-        proxy,
-        reloadDebounce: 500,
-    });
+    browserSync.init(browserSyncSettings);
 }
 
 gulp.task('styles', [], () => {
@@ -61,7 +63,7 @@ gulp.task('styles', [], () => {
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(`${publicDir}/styles`))
     .pipe(browserSync.stream({
-        match: `${publicDir}/**/**.css`,
+        match: '**/**.css',
     }));
 });
 

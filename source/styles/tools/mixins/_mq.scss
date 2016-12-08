@@ -1,0 +1,10 @@
+@mixin mq($layer) {
+    @if not map-has-key($media-queries, $layer) {
+        @error 'There is no layer named `#{$layer}` in $media-queries. '
+            + 'Layer should be one of #{map-keys($media-queries)}.';
+    }
+    $mq: map-get($media-queries, $label);
+    @media screen and #{$mq} {
+        @content;
+    }
+}
