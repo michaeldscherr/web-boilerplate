@@ -1,6 +1,6 @@
 $headingsCount: 4;
 
-.s-type {
+.type {
     @each $label, $scale in $scales {
         @if $label == null {
             @include headings($scale, $headingsCount);

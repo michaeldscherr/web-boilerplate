@@ -1,10 +1,12 @@
 // settings
 
 @import 'settings';
+@import 'libraries/bootstrap/variables';
 
 // tools
 
 @import 'tools/functions';
+@import 'libraries/bootstrap/mixins';
 @import 'tools/mixins';
 
 // generic
@@ -19,3 +21,9 @@
 
 @import 'objects/wrap';
 @import 'objects/typography';
+@import 'objects/grid';
+
+// utilities
+
+@import 'libraries/bootstrap/utilities';
+@import 'libraries/bootstrap/responsive-utilities';

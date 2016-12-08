@@ -1,0 +1,6 @@
+@import '../libraries/bootstrap/grid';
+
+*[class*="col-"] {
+    padding-left: vr(1);
+    padding-right: vr(1);
+}
